@@ -1,0 +1,140 @@
+#usepackage
+snippet up "\usepackage"
+	\\usepackage[${1:options}]{${2:package}} ${0}
+endsnippet
+# \begin{}...\end{}
+snippet begin "\begin{} ... \end{} block"
+\\begin{${1:env}}
+	${0:${VISUAL}}
+\\end{$1}
+endsnippet
+snippet begin> "\begin{} ... \end{} block"
+	\\begin{${1:env}}
+		${0:${VISUAL}}
+	\\end{$1}
+endsnippet
+# Tabular
+snippet tab "tabular (or arbitrary) environment"
+	\\begin{${1:tabular}}{${2:c}}
+		${0:${VISUAL}}
+	\\end{$1}
+endsnippet
+snippet center "center environment"
+\\begin{center}
+	${0:${VISUAL}}
+\\end{center}
+endsnippet
+snippet lab \label
+\\label{${1:eq:}${2:fig:}${3:tab:}${0}}
+endsnippet
+# Enumerate
+snippet enum "enumerate environment"
+\\begin{enumerate}
+	\\item ${0}
+\\end{enumerate}
+endsnippet
+# Itemize
+snippet item "itemize environment"
+\\begin{itemize}
+	\\item ${0}
+\\end{itemize}
+endsnippet
+snippet it "\item"
+\\item ${1:${VISUAL}}
+endsnippet
+# Chapter
+snippet cha "\chapter"
+\\chapter{${1:chapter name}}%
+\\label{cha:${2:$1}}
+${0}
+endsnippet
+# Section
+snippet sec "\section"
+\\section{${1:section name}}%
+\\label{sec:${2:$1}}
+${0}
+endsnippet
+# Sub Section
+snippet sub "\subsection"
+\\subsection{${1:subsection name}}%
+\\label{sub:${2:$1}}
+${0}
+endsnippet
+# Sub Sub Section
+snippet ssub "\subsubsection"
+\\subsubsection{${1:subsubsection name}}%
+\\label{ssub:${2:$1}}
+${0}
+endsnippet
+# Paragraph
+snippet par "\paragraph"
+\\paragraph{${1:paragraph name}}%
+\\label{par:${2:$1}}
+${0}
+endsnippet
+# Sub Paragraph
+snippet subp "\subparagraph"
+\\subparagraph{${1:subparagraph name}}%
+\\label{subp:${2:$1}}
+${0}
+endsnippet
+snippet fig "figure environment (includegraphics)"
+	\\begin{figure}
+	\\begin{center}
+		\\includegraphics[scale=${1}]{Figures/${2}}
+	\\end{center}
+	\\caption{${3}}
+	\\label{fig:${4}}
+	\\end{figure}
+	${0}
+endsnippet
+snippet tikz "figure environment (tikzpicture)"
+	\\begin{figure}[htpb]
+	\\begin{center}
+	\\begin{tikzpicture}[scale=${1:1}, transform shape]
+		${2}
+	\\end{tikzpicture}
+	\\end{center}
+	\\caption{${3}}%
+	\\label{fig:${4}}
+	\\end{figure}
+	${0}
+endsnippet
+snippet multicol "two-column environment with multicol"
+	\\begin{multicols}{2}
+		${1}
+		\columnbreak
+		${0}
+	\\end{multicols}
+endsnippet
+snippet lr "left right"
+	\\left${1} ${0:${VISUAL}} \\right$1
+endsnippet
+snippet lr( "left( right)"
+	\\left( ${0:${VISUAL}} \\right)
+endsnippet
+snippet lr| "left| right|"
+	\\left| ${0:${VISUAL}} \\right|
+endsnippet
+snippet lr{ "left\{ right\}"
+	\\left\\{ ${0:${VISUAL}} \\right\\}
+endsnippet
+snippet lr[ "left[ right]"
+	\\left[ ${0:${VISUAL}} \\right]
+endsnippet
+snippet lra "langle rangle"
+	\\langle ${0:${VISUAL}} \\rangle
+endsnippet
+snippet href
+	\\href{${1}}{${2}} ${0}
+endsnippet
+snippet minipage "minipage env"
+\\begin{minipage}{${1:0.5}\textwidth}
+	${0:${VISUAL}}
+\\end{minipage}
+endsnippet
+snippet frame "frame env"
+\\begin{frame}{${1:}}
+	${0:${VISUAL}}
+\\end{frame}
+endsnippet

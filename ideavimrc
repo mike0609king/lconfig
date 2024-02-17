@@ -1,0 +1,100 @@
+"General configurations
+if has("syntax")
+  syntax on
+endif
+
+set nocompatible
+filetype plugin on
+filetype plugin indent on
+syntax enable
+syntax on
+set autoindent
+set belloff=all
+set showcmd				" Show (partial) command in status line.
+set showmatch				" Show matching brackets.
+set ignorecase				" Do case insensitive matching
+" set smartcase				" Do smart case matching
+set incsearch				" Incremental search -> while searching you get the results
+set autowrite				" Automatically save before commands like :next and :make
+set mouse=a				" Enable mouse usage (all modes)
+set path+=** 				" searches in the folders if I use :find
+set wildmenu 				" uses a menu so that I can select the file if I use <tab> for completion in
+					" :find and more than one file has been found
+set guifont=Consolas:h15		" changes the guifont
+set relativenumber			" sets relative numbers
+set number				" sets number at the current line
+set clipboard=unnamedplus		" activates clipboard ?
+set autoread				" ? 
+"set wrap linebreak
+"set shortmess+=c			" the autocomplete messages won't show below (completion Plugin)
+set hidden
+set nowrap 				" code can go down go out of screen
+let mapleader=" "
+set encoding=utf-8
+set backspace=indent,eol,start 		" removing the restriction of the backspace so that it it is possible to delete previously entered code
+set noswapfile " no swap file is going to get created
+
+" On pressing tab, insert 2 spaces
+set expandtab
+" show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" when indenting with '>', use 2 spaces width
+set shiftwidth=2
+
+" my universal mapping
+nnoremap ,unfold :set foldlevel=100<cr>	
+nnoremap ,all ggvg
+nnoremap ,clear ggVGx
+nnoremap ,ecmd :!clear<cr>
+nnoremap ,copy ggVGy
+" switch windows
+nnoremap <leader>h <C-W>h
+nnoremap <leader>j <C-W>j
+nnoremap <leader>k <C-W>k
+nnoremap <leader>l <C-W>l
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"     Linux Copy
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <C-v> <ESC>"+pa
+vmap <C-c> "+y
+
+" system clipboard
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>y "+yy
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+
+nnoremap <silent><leader>= :vertical resize +5<cr> 	" resize the vertical window (+)
+nnoremap <silent><leader>- :vertical resize -5<cr> 	" resize the vertical window (-)
+
+" spelling mappings
+nnoremap ,setd :set spell spelllang=en_us,de<cr>
+nnoremap ,seteng :set spell spelllang=en_us<cr>
+nnoremap ,setger :set spell spelllang=de<cr>
+nnoremap ,setnosp :set nospell<cr>
+
+" mapping special characters for note
+inoremap \"o ö
+inoremap \"u ü
+inoremap \"a ä
+inoremap \ss ß
+inoremap \"O Ö 
+inoremap \"U Ü
+inoremap \"A Ä
+
+nnoremap <leader><cr> :bd<cr>
+nnoremap <leader>. gt
+nnoremap <leader>, gT
+nnoremap <leader>t :tabedit<cr>
+
+set NERDTree
+nnoremap <C-n> :NERDTreeToggle<bar>:set relativenumber<cr>
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+set surround

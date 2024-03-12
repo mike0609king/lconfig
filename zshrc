@@ -1,6 +1,6 @@
 # History
-# HISTSIZE=10000
-# SAVEHIST=10000
+HISTSIZE=10000
+SAVEHIST=10000
 
 # Basic auto/tab complete
 autoload -U compinit
@@ -18,13 +18,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # Makes it possible to use vi in the editor
 bindkey -v
 export KEYTIMEOUT=1
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line
-zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # getting utf-8 (languague environment)
 export LANG="en_US.UTF-8"

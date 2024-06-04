@@ -236,7 +236,6 @@ bindsym $mod+Shift+s exec flameshot gui
 ####################################################################
 ####                     Start at beginning                     ####
 ####################################################################
-# Starting when i3 starts
 exec setxkbmap -option caps:escape
 
 # Starting when i3 Resets
@@ -247,3 +246,7 @@ exec xrandr --output Virtual1 --mode 1920x1072 --pos 0x0 --rotate normal --outpu
 # one screen
 #exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# US and german keyboard layout with alt+shift to toggle
+exec "setxkbmap -layout us,de"
+exec "setxkbmap -option 'grp:alt_shift_toggle'"

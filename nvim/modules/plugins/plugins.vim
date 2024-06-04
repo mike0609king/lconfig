@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 " Auto completion
 Plug 'neoclide/coc.nvim',{'branch':'release'}
-Plug 'vim-latex/vim-latex'
 Plug 'alvan/vim-closetag'
 Plug 'dart-lang/dart-vim-plugin'                   " Dart Syntax highlighting
 

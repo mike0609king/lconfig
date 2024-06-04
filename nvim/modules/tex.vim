@@ -1,7 +1,4 @@
 " LaTeX settings
-set grepprg=grep\ -nH\ $*	" recommended from website
-let g:tex_flavor='latex' 	" recommended from website
-let g:Imap_FreezeImap=1		" no auto mapping from which I dont know...
 autocmd filetype tex set wm=2	" sets a wrap margin of 2 characters from the right window border
 autocmd filetype tex setlocal indentexpr=
 

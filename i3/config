@@ -164,7 +164,7 @@ mode $mode1{
 
   #kill focused window 
   bindsym Shift+q kill
-  
+
   # change container layout (stacked, tabbed, toggle split)
   bindsym s layout stacking
   bindsym t layout tabbed
@@ -229,6 +229,7 @@ bindsym $mod+r mode $mode2
 ####################################################################
 
 bindsym $mod+Return exec $term
+bindsym $mod+Tab exec ~/lconfig/keyboard_toggle.sh
 
 # making screenshots like I would in google
 bindsym $mod+Shift+s exec flameshot gui
@@ -247,6 +248,3 @@ exec xrandr --output Virtual1 --mode 1920x1072 --pos 0x0 --rotate normal --outpu
 #exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# US and german keyboard layout with alt+shift to toggle
-exec "setxkbmap -layout us,de"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"

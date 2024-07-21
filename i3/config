@@ -229,7 +229,7 @@ bindsym $mod+r mode $mode2
 ####################################################################
 
 bindsym $mod+Return exec $term
-bindsym $mod+Tab exec ~/lconfig/keyboard_toggle.sh
+bindsym $mod+Tab exec ~/lconfig/scripts/keyboard_toggle.sh
 
 # making screenshots like I would in google
 bindsym $mod+Shift+s exec flameshot gui

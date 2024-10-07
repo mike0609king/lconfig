@@ -1,43 +1,38 @@
 " General configurations
-set nocompatible
+"set nocompatible
 filetype plugin on
-filetype plugin indent on
 syntax enable
 syntax on
 set autoindent
 set belloff=all
-set showcmd				    " Show (partial) command in status line.
-set showmatch				" Show matching brackets.
-set ignorecase				" Do case insensitive matching
-" set smartcase				" Do smart case matching
-set incsearch				" Incremental search -> while searching you get the results
-set autowrite				" Automatically save before commands like :next and :make
-set mouse=a				    " Enable mouse usage (all modes)
-set path+=** 				" searches in the folders if I use :find
-set wildmenu 				" uses a menu so that I can select the file if I use <tab> for completion in
-					        " :find and more than one file has been found
+set showcmd				      " Show (partial) command in status line.
+set showmatch				    " Show matching brackets.
+set ignorecase				  " Do case insensitive matching
+set incsearch				    " Incremental search -> while searching you get the results
+set autowrite				    " Automatically save before commands like :next and :make
+set mouse=a				      " Enable mouse usage (all modes)
+set path+=** 				    " searches in the folders if I use :find
+set wildmenu 				    " uses a menu so that I can select the file if I use <tab> for completion in
+					              " :find and more than one file has been found
 set relativenumber			" sets relative numbers
-set number				    " sets number at the current line
+set number				      " sets number at the current line
 set clipboard=unnamedplus	" activates clipboard ?
-set autoread				" ? 
+set autoread				    " ? 
 "set wrap linebreak
-"set shortmess+=c			" the autocomplete messages won't show below (completion Plugin)
+"set shortmess+=c			  " the autocomplete messages won't show below (completion Plugin)
 set hidden
-set nowrap 				    " code can go down go out of screen
-let mapleader=" "
+set nowrap 				      " code can go down go out of screen
+let mapleader=' '
 set encoding=utf-8
 set backspace=indent,eol,start 		" removing the restriction of the backspace 
-                                    " so that it it is possible to delete previously 
-                                    " entered code
-set noswapfile              " no swap file is going to get created
+                                  " so that it it is possible to delete previously 
+                                  " entered code
+set noswapfile                    " no swap file is going to get created
 
-" On pressing tab, insert X spaces
 set expandtab
-" show existing tab with X spaces width
-set tabstop=4
-set softtabstop=4
-" when indenting with '>', use X spaces width
-set shiftwidth=4
+set tabstop=2                     " show existing tab with X spaces width
+set softtabstop=0                 " width of indentation span
+set shiftwidth=2                  " when indenting with '>', use X spaces width
 
 " not too long lines (max. 80 characters)
 set colorcolumn=80
@@ -87,11 +82,10 @@ source $modulePath/c.vim
 source $modulePath/java.vim
 source $modulePath/tex.vim
 source $modulePath/sh.vim
-source $modulePath/note.vim
 source $modulePath/markdown.vim
 source $modulePath/json.vim
 
 source $pluginsPath/plugins.vim
 
-" transparency
-hi Normal guibg=NONE ctermbg=NONE
+" This is set at the end, because of bugs of vim-plug!
+filetype plugin indent off

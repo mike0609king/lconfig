@@ -2,11 +2,9 @@
 " extentions
 " remove: CocUninstall <extention-name>
 " CocInstall coc-pyright
-"\ 'coc-python',
-"\ 'coc-vimtex',
-"\ 'coc-clangd',
 " ################################################
 
+let g:coc_disable_startup_warning = 1
 let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-eslint',
@@ -16,20 +14,15 @@ let g:coc_global_extensions = [
     \ 'coc-css',
     \ 'coc-cssmodules',
     \ 'coc-python',
-    \ 'coc-flutter',
-    \ 'coc-ccls'
     \]
 
 " coc-pairs
 "
 let b:coc_pairs_disabled = ['<']
 autocmd FileType tex let b:coc_pairs = [["$", "$"], ["(", ")"], ["[", "]"], ["{", "}"]]
-set runtimepath+=~/.vim/plugged/coc.nvim/plugin/coc.vim
 
 " completely disable coc for certain files
 " autocmd filetype cpp set runtimepath-=~/.vim/plugged/coc.nvim
-" autocmd filetype python set runtimepath-=~/.vim/plugged/coc.nvim
-" autocmd filetype tex set runtimepath-=~/.vim/plugged/coc.nvim
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :

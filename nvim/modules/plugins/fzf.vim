@@ -1,2 +1,2 @@
-nnoremap <C-p> :Files<cr>
+nnoremap <C-o> :Files<cr>
 nnoremap <C-b> :Buffers<cr>

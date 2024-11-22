@@ -26,8 +26,14 @@ Install and get configuration from this repository.
 1. Install it.
 
 ## flameshot
-Just install it with the package manager in oder to be able 
+Just install it with the package manager in order to be able 
 to make the screenshots with Super+Shift+S (like in windows).
+
+## Window switcher
+Create the shortcut ctrl+o
+```
+rofi -show window
+```
 
 ## ranger
 1. Install ranger.

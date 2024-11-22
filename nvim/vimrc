@@ -30,9 +30,9 @@ set backspace=indent,eol,start 		" removing the restriction of the backspace
 set noswapfile                    " no swap file is going to get created
 
 set expandtab
-set tabstop=2                     " show existing tab with X spaces width
+set tabstop=4                     " show existing tab with X spaces width
 set softtabstop=0                 " width of indentation span
-set shiftwidth=2                  " when indenting with '>', use X spaces width
+set shiftwidth=4                  " when indenting with '>', use X spaces width
 
 " not too long lines (max. 80 characters)
 set colorcolumn=80

@@ -187,7 +187,6 @@ mode $mode1{
 	bindsym Escape mode "default"
 	bindsym i mode "default"
 	bindsym $mod+r mode $mode2
-    bindsym $mod+o mode $mode3
 }
 bindsym $mod+space mode $mode1
 
@@ -216,8 +215,7 @@ mode $mode2 {
 	# Transition to other modes
 	bindsym Escape mode "default"
 	bindsym i mode "default"
-    bindsym $mod+space mode $mode1
-    bindsym $mod+o mode $mode3
+  bindsym $mod+space mode $mode1
 }
 bindsym $mod+r mode $mode2
 
@@ -228,21 +226,18 @@ bindsym $mod+r mode $mode2
 bindsym $mod+Return exec $term
 bindsym $mod+Tab exec ~/lconfig/scripts/keyboard_toggle.sh
 
-# making screenshots like I would in google
+# making screenshots like I would in windows
 bindsym $mod+Shift+s exec flameshot gui
+
+# switch window
+bindsym $mod+o exec rofi -show window
 
 ####################################################################
 ####                     Start at beginning                     ####
 ####################################################################
-exec setxkbmap -option caps:escape
-
-# Starting when i3 Resets
-exec_always xrandr -s 1920x1200
-# two screens
-# normal exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-2 --off
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --output HDMI-2 --mode 1920x1080 --output DP-1 --off --output HDMI-1 --off
-exec xrandr --output Virtual1 --mode 1920x1072 --pos 0x0 --rotate normal --output Virtual2 --mode 1920x960 --pos 1920x0 --rotate normal --output Virtual3 --off --output Virtual4 --off --output Virtual5 --off --output Virtual6 --off --output Virtual7 --off --output Virtual8 --off
 # one screen
-#exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --off --output HDMI-2 --off
+exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output DP-2-1 --off --output DP-1 --off --output HDMI-2 --off
+# two screens
+#exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output DP-2-1 --mode 1920x1080 --left-of eDP-1 --rotate normal --output DP-1 --off --output HDMI-2 --off
+# polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-

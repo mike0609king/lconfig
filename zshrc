@@ -29,7 +29,7 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export nvimPath="nvim -u ~/lconfig/nvim/vimrc"
+export nvimPath="nvim -u ~/lconfig/nvim/config.lua"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then

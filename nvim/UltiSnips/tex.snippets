@@ -1,8 +1,6 @@
-#usepackage
 snippet up "\usepackage"
 	\\usepackage[${1:options}]{${2:package}} ${0}
 endsnippet
-# \begin{}...\end{}
 snippet begin "\begin{} ... \end{} block"
 \\begin{${1:env}}
 	${0:${VISUAL}}
@@ -13,7 +11,6 @@ snippet begin> "\begin{} ... \end{} block"
 		${0:${VISUAL}}
 	\\end{$1}
 endsnippet
-# Tabular
 snippet tab "tabular (or arbitrary) environment"
 	\\begin{${1:tabular}}{${2:c}}
 		${0:${VISUAL}}
@@ -27,13 +24,11 @@ endsnippet
 snippet lab \label
 \\label{${1:eq:}${2:fig:}${3:tab:}${0}}
 endsnippet
-# Enumerate
 snippet enum "enumerate environment"
 \\begin{enumerate}
 	\\item ${0}
 \\end{enumerate}
 endsnippet
-# Itemize
 snippet item "itemize environment"
 \\begin{itemize}
 	\\item ${0}
@@ -42,37 +37,31 @@ endsnippet
 snippet it "\item"
 \\item ${1:${VISUAL}}
 endsnippet
-# Chapter
 snippet cha "\chapter"
 \\chapter{${1:chapter name}}%
 \\label{cha:${2:$1}}
 ${0}
 endsnippet
-# Section
 snippet sec "\section"
 \\section{${1:section name}}%
 \\label{sec:${2:$1}}
 ${0}
 endsnippet
-# Sub Section
 snippet sub "\subsection"
 \\subsection{${1:subsection name}}%
 \\label{sub:${2:$1}}
 ${0}
 endsnippet
-# Sub Sub Section
 snippet ssub "\subsubsection"
 \\subsubsection{${1:subsubsection name}}%
 \\label{ssub:${2:$1}}
 ${0}
 endsnippet
-# Paragraph
 snippet par "\paragraph"
 \\paragraph{${1:paragraph name}}%
 \\label{par:${2:$1}}
 ${0}
 endsnippet
-# Sub Paragraph
 snippet subp "\subparagraph"
 \\subparagraph{${1:subparagraph name}}%
 \\label{subp:${2:$1}}

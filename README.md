@@ -4,7 +4,9 @@ the following there are programs sorted after the sequence
 I might install them in.
 
 ## nvim
-1. Install nvim and load configuration file from github.
+1. Install nvim and load configuration file from github. Nvim 9 or older, 
+if you want to use it to develop larger projects. Modifying a few scripts is
+fine with any version, because you can simply not use plugins.
 2. Install vim-plug
 
 ## Node js
@@ -28,17 +30,15 @@ Install and get configuration from this repository.
 ## flameshot
 Just install it with the package manager in order to be able 
 to make the screenshots with Super+Shift+S (like in windows).
+```
+flameshot gui
+```
 
 ## Window switcher
 Create the shortcut ctrl+o
 ```
 rofi -show window
 ```
-
-## ranger
-1. Install ranger.
-2. Get ranger-devicon plugin.
-3. Install image-preview: You can use ueberzug
 
 ## sxiv
 1. Install.

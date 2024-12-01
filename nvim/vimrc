@@ -36,6 +36,7 @@ set tabstop=4                     " show existing tab with X spaces width
 set softtabstop=0                 " width of indentation span
 set shiftwidth=4                  " when indenting with '>', use X spaces width
 
+
 " not too long lines (max. 80 characters)
 set colorcolumn=80
 
@@ -47,6 +48,40 @@ nnoremap <leader>h :wincmd h<cr> 		" switch windows
 nnoremap <leader>j :wincmd j<cr> 		" switch windows
 nnoremap <leader>k :wincmd k<cr> 		" switch windows
 nnoremap <leader>l :wincmd l<cr> 		" switch windows 
+
+" netrw (https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/)
+let g:netrw_preview=1                           " preview is on right side when clicking p in netrw
+let g:netrw_winsize= 30                         " 30% window size
+let g:netrw_banner= 0                           " If you want to see the banner again, type I
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'  " hide dot files
+
+function! NetrwMapping()
+    " go back in history
+    nmap <buffer> H u
+    " go up a directory
+    nmap <buffer> h -^
+    " go into a directory / open file
+    nmap <buffer> l <CR>
+
+    " show or hide dot file
+    nmap <buffer> . gh
+    " Close the preview window
+    nmap <buffer> P <C-w>z
+
+    " Open file and close netrw
+    nmap <buffer> L <CR>:Lexplore<CR>
+    " close netrw
+    nmap <buffer> <Leader>dd :Lexplore<CR>
+endfunction
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+
+" Open netrw in directory of current file
+nnoremap <leader>df :Lexplore %:p:h<cr>
+" Open netrw in current working directory
+nnoremap <leader>dd :Lexplore<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                    Fix of cursor in vim

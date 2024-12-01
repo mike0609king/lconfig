@@ -54,3 +54,21 @@ require("lspconfig").ccls.setup {
         },
     },
 }
+
+require'lspconfig'.jdtls.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+        "jdtls",
+        "-configuration",
+        "/home/mike0609king/.cache/jdtls/config",
+        "-data",
+        "/home/mike0609king/.cache/jdtls/workspace"
+    },
+    filetypes = { "java" },
+    {
+        jvm_args = {},
+        workspace = "/home/user/.cache/jdtls/workspace"
+    },
+    single_file_support = true,
+}

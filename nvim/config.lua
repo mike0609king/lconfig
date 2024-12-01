@@ -44,6 +44,39 @@ vim.keymap.set("n", "<leader>l", ":wincmd l<cr>")
 vim.keymap.set("n", "<leader>=", ":vertical resize +5<cr>") -- resize the vertical window (+)
 vim.keymap.set("n", "<leader>-", ":vertical resize -5<cr>") -- resize the vertical window (-)
 
+-- netrw (https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/)
+vim.g.netrw_preview     = 1                                 -- preview is on right side, when clicking p in netrw
+vim.g.netrw_winsize     = 30                                -- 30% window size
+vim.g.netrw_banner      = 0                                 -- If you want to see the banner again, type I
+vim.g.netrw_list_hide   = "\\(^\\|\\s\\s\\)\\zs\\.\\S\\+"   -- hide dot files
+vim.keymap.set("n", "<leader>df", ":Lexplore %:p:h<cr>")    -- open netrw in directory of current file
+vim.keymap.set("n", "<leader>dd", ":Lexplore<cr>")          -- open netrw in current working directory
+vim.cmd([[
+" H: Will "go back" in history.
+" h: Will "go up" a directory.
+" l: Will open a directory or a file.
+" .: Will toggle the dotfiles.
+" P: Will close the preview window.
+" L: Will open a file and close Netrw.
+" Leader dd: Will just close Netrw.
+function! NetrwMapping()
+  nmap <buffer> H u
+  nmap <buffer> h -^
+  nmap <buffer> l <CR>
+
+  nmap <buffer> . gh
+  nmap <buffer> P <C-w>z
+
+  nmap <buffer> L <CR>:Lexplore<CR>
+  nmap <buffer> <Leader>dd :Lexplore<CR>
+endfunction
+
+augroup netrw_mapping
+  autocmd!
+  autocmd filetype netrw call NetrwMapping()
+augroup END
+]])
+
 -- spelling mappings
 vim.keymap.set("n", ",setd", ":set spell spelllang=en_us,de<cr>")
 vim.keymap.set("n", ",seteng", ":set spell spelllang=en_us<cr>")

@@ -37,6 +37,8 @@ vim.g.mapleader=" "
 vim.keymap.set("n", ",unfold", ":set foldlevel=100<cr>")
 vim.keymap.set("n", ",all", "ggVG")
 vim.keymap.set("n", ",clear", "ggVGd")
+vim.keymap.set("n", "<leader>yf", ":let @+=expand('%:p')<cr>")      -- copy current file name to system clipboard
+vim.keymap.set("n", "<leader>yd", ":let @+=expand('%:p:h')<cr>")    -- copy current directory name to system clipboard
 vim.keymap.set("n", "<leader>h", ":wincmd h<cr>")
 vim.keymap.set("n", "<leader>j", ":wincmd j<cr>")
 vim.keymap.set("n", "<leader>k", ":wincmd k<cr>")
@@ -49,8 +51,8 @@ vim.g.netrw_preview     = 1                                 -- preview is on rig
 vim.g.netrw_winsize     = 30                                -- 30% window size
 vim.g.netrw_banner      = 0                                 -- If you want to see the banner again, type I
 vim.g.netrw_list_hide   = "\\(^\\|\\s\\s\\)\\zs\\.\\S\\+"   -- hide dot files
-vim.keymap.set("n", "<leader>df", ":Lexplore %:p:h<cr>")    -- open netrw in directory of current file
-vim.keymap.set("n", "<leader>dd", ":Lexplore<cr>")          -- open netrw in current working directory
+vim.keymap.set("n", "<leader>dd", ":e %:p:h<cr>")           -- open netrw in directory of current file
+vim.keymap.set("n", "<C-n>", ":Lexplore<cr>")               -- open netrw in current working directory
 vim.cmd([[
 " H: Will "go back" in history.
 " h: Will "go up" a directory.
@@ -59,16 +61,20 @@ vim.cmd([[
 " P: Will close the preview window.
 " L: Will open a file and close Netrw.
 " Leader dd: Will just close Netrw.
+" Leader yd: copy current directory
+" Leader yf: copy currently highlighted file
 function! NetrwMapping()
-  nmap <buffer> H u
-  nmap <buffer> h -^
-  nmap <buffer> l <CR>
+    nmap <buffer> H u
+    nmap <buffer> h -^
+    nmap <buffer> l <CR>
 
-  nmap <buffer> . gh
-  nmap <buffer> P <C-w>z
+    nmap <buffer> . gh
+    nmap <buffer> P <C-w>z
 
-  nmap <buffer> L <CR>:Lexplore<CR>
-  nmap <buffer> <Leader>dd :Lexplore<CR>
+    nmap <buffer> L <CR>:Lexplore<CR>
+    nmap <buffer> <leader>dd :Lexplore<CR>
+    nmap <buffer> <leader>yd :let @+=expand('%:p')<cr>
+    nmap <buffer> <leader>yf yy:let @+=expand('%:p').@+<cr>
 endfunction
 
 augroup netrw_mapping

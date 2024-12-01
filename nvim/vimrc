@@ -44,6 +44,10 @@ set colorcolumn=80
 nnoremap ,unfold :set foldlevel=100<cr>	
 nnoremap ,all ggvg
 nnoremap ,clear ggVGx
+" copy current file name to system clipboard
+nnoremap <leader>yf :let @+=expand('%:p')<cr>
+" copy current directory name to system clipboard
+nnoremap <leader>yd :let @+=expand('%:p:h')<cr>
 nnoremap <leader>h :wincmd h<cr> 		" switch windows 
 nnoremap <leader>j :wincmd j<cr> 		" switch windows
 nnoremap <leader>k :wincmd k<cr> 		" switch windows
@@ -72,6 +76,10 @@ function! NetrwMapping()
     nmap <buffer> L <CR>:Lexplore<CR>
     " close netrw
     nmap <buffer> <Leader>dd :Lexplore<CR>
+    " copy current directory
+    nmap <buffer> <leader>yd :let @+=expand('%:p')<cr>
+    " copy currently highlighted file
+    nmap <buffer> <leader>yf yy:let @+=expand('%:p').@+<cr>
 endfunction
 augroup netrw_mapping
   autocmd!
@@ -79,9 +87,9 @@ augroup netrw_mapping
 augroup END
 
 " Open netrw in directory of current file
-nnoremap <leader>df :Lexplore %:p:h<cr>
+nnoremap <leader>dd :e %:p:h<cr>
 " Open netrw in current working directory
-nnoremap <leader>dd :Lexplore<cr>
+nnoremap <C-n> :Lexplore<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                    Fix of cursor in vim

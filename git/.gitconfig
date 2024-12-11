@@ -1,0 +1,14 @@
+[user]
+	name = mike0609king
+	email = mike-huang@web.de
+[diff]
+    tool = nvimdiff
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+[mergetool]
+    keepBackup = false
+    trustExitCode = false
+    prompt = true
+[core]
+    editor = nvim -u ~/lconfig/nvim/config.lua

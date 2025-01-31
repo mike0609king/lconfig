@@ -1,8 +1,18 @@
 -- Set up lspconfig.
--- 
+
 -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md for
 -- language servers for the programming languages you require
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false
+})
+
+-- Show line diagnostics automatically in hover window
+vim.o.updatetime = 250
 
 local on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true }
@@ -16,9 +26,23 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "[[", "<cmd>lua vim.diagnostic.enable()<cr>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "]]", "<cmd>lua vim.diagnostic.disable()<cr>", opts)
+
+    vim.api.nvim_create_autocmd("CursorHold", {
+      buffer = bufnr,
+      callback = function()
+        local opts = {
+          focusable = false,
+          close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+          border = 'rounded',
+          source = 'always',
+          prefix = ' ',
+          scope = 'cursor',
+        }
+        vim.diagnostic.open_float(nil, opts)
+      end
+    })
 end
 
 --[[
@@ -42,7 +66,7 @@ require("lspconfig").ccls.setup {
     cmd = { "ccls" },
     init_options = {
         cache = {
-          directory = ".ccls-cache";
+          directory = ".ccls-cache",
         },
         filetypes =  {"c", "cpp", "objc", "objcpp", "cuda" },
         compilationDatabaseDirectory = "./build/",

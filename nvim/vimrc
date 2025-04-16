@@ -30,6 +30,7 @@ set backspace=indent,eol,start 	  " removing the restriction of the backspace
                                   " so that it it is possible to delete previously 
                                   " entered code
 set noswapfile                    " no swap file is going to get created
+set ssop-=folds                   " folds are not stored
 
 set expandtab
 set tabstop=4                     " show existing tab with X spaces width

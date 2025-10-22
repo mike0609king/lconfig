@@ -19,6 +19,10 @@ Plug('junegunn/fzf.vim')
 Plug('SirVer/ultisnips')
 Plug('quangnguyen30192/cmp-nvim-ultisnips')
 
+--prittier for web stuff
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'MunifTanjim/prettier.nvim'
+
 -- Looks of vim
 Plug('morhetz/gruvbox')
 Plug('ap/vim-css-color')

@@ -98,6 +98,33 @@ vim.keymap.set("i", '\\"O', "Ö")
 vim.keymap.set("i", '\\"U', "Ü")
 vim.keymap.set("i", '\\"A', "Ä")
 
+local function set_language_config()
+    local filetype = vim.bo.filetype
+    if filetype == "python" then
+        vim.opt.tabstop = 4
+        vim.opt.shiftwidth = 4
+        vim.opt.softtabstop = 4
+        vim.opt.expandtab = true
+    elseif (
+        filetype == "javascript"
+        or filetype == "javascriptreact"
+        or filetype == "typescript"
+        or filetype == "typescriptreact"
+	) then
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.softtabstop = 2
+        vim.opt.expandtab = true
+    end
+end
+
+vim.api.nvim_create_autocmd({"FileType"}, {
+  pattern = {"*"},
+  callback = function()
+    set_language_config()
+  end
+})
+
 vim.g.home = "/home/mike0609king/"
 vim.g.modulesPath = vim.g.home .. "lconfig/nvim/modules/"
 vim.g.pluginsPath = vim.g.home .. "lconfig/nvim/plugins/"

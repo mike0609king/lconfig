@@ -58,11 +58,11 @@ export PATH=~/.local/bin:~/bin:/usr/local/bin:$PATH
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias serve='browser-sync start --server --files . --no-notify -- host `hostname -I` --port 9000'
+#alias serve='browser-sync start --server --files . --no-notify -- host `hostname -I` --port 9000'
 
 alias tmux='tmux -u -f ~/lconfig/tmux.conf'
 alias nvim=$nvimPath
 
 export CALCURSE_EDITOR=$vimPath
 
-alias f='source ranger'
+alias f='fzf | xclip -selection clipboard'

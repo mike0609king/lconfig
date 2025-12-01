@@ -1,0 +1,18 @@
+[user]
+	name = ...
+	email = ...
+[diff]
+    tool = nvimdiff
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+[mergetool]
+    keepBackup = false
+    trustExitCode = false
+    prompt = true
+[core]
+    editor = nvim -u ~/lconfig/nvim/config.lua
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main

@@ -125,7 +125,7 @@ vim.api.nvim_create_autocmd({"FileType"}, {
   end
 })
 
-vim.g.home = "/home/mike0609king/"
+vim.g.home = os.getenv("HOME") .. "/"
 vim.g.modulesPath = vim.g.home .. "lconfig/nvim/modules/"
 vim.g.pluginsPath = vim.g.home .. "lconfig/nvim/plugins/"
 

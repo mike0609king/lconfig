@@ -1,0 +1,37 @@
+###############################################################################
+# Isolated development environment
+###############################################################################
+FROM node:24-bookworm
+
+RUN apt-get update
+
+###############################################################################
+# Build neovim
+###############################################################################
+RUN apt-get install -y ninja-build gettext cmake curl build-essential git
+RUN mkdir -p /app
+WORKDIR /app
+RUN git clone https://github.com/neovim/neovim
+WORKDIR /app/neovim
+RUN git checkout stable
+RUN make CMAKE_BUILD_TYPE=RelWithDebInfo
+RUN make install
+
+# Setup plugins 
+RUN sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+###############################################################################
+# Shell configurations
+###############################################################################
+RUN apt-get install -y git
+RUN mkdir -p /opt/config
+WORKDIR /root
+RUN git clone https://github.com/mike0609king/lconfig
+
+###############################################################################
+# Installations
+###############################################################################
+RUN apt-get install -y zsh tmux python3 python3-neovim
+RUN npm install -g prettier
+COPY .zshrc /root/

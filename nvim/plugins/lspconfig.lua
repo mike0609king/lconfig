@@ -1,4 +1,4 @@
--- Set up lspconfig.
+-- Set up language server.
 
 -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md for
 -- language servers for the programming languages you require
@@ -48,10 +48,11 @@ end
 --[[
 Basic config
 
-require("lspconfig")["<language server>"].setup {
+vim.lsp.config("<language server>", {
     on_attach = on_attach,
     capabilities = capabilities,
-}
+})
+vim.lsp.enable("<language server>")
 
 ]]
 
@@ -61,18 +62,19 @@ Install pyright with
 pip install pyright
 ```
 ]]
-require("lspconfig").pyright.setup {
+vim.lsp.config("pyright", {
     on_attach = on_attach,
     capabilities = capabilities,
-}
+})
+vim.lsp.enable("pyright")
 
-require("lspconfig").ccls.setup {
+vim.lsp.config("ccls", {
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = { "ccls" },
     init_options = {
         cache = {
-          directory = ".ccls-cache",
+            directory = ".ccls-cache",
         },
         filetypes =  {"c", "cpp", "objc", "objcpp", "cuda" },
         compilationDatabaseDirectory = "./build/",
@@ -83,9 +85,9 @@ require("lspconfig").ccls.setup {
             excludeArgs = { "-frounding-math"} ,
         },
     },
-}
+})
 
-require'lspconfig'.jdtls.setup{
+vim.lsp.config("jdtls", {
     on_attach = on_attach,
     capabilities = capabilities,
     cmd = {
@@ -101,7 +103,8 @@ require'lspconfig'.jdtls.setup{
         workspace = "/home/user/.cache/jdtls/workspace"
     },
     single_file_support = true,
-}
+})
+vim.lsp.enable("jdtls")
 
 --[[
 Setup for web (ts, js, json,)
@@ -111,13 +114,14 @@ Install typescript language server and prettier with
 sudo npm install -g typescript typescript-language-server prettier
 ```
 ]]
-require("lspconfig").ts_ls.setup {
+vim.lsp.config("ts_ls", {
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
     cmd = { "typescript-language-server", "--stdio" }
 
-}
+})
+vim.lsp.enable("ts_ls")
 
 -- prettier setup. Makes sure to autoformat tsx and jsx when programming
 local null_ls = require("null-ls")

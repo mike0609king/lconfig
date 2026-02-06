@@ -9,7 +9,9 @@ Plug('hrsh7th/cmp-buffer')
 Plug('hrsh7th/cmp-path')
 Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp-signature-help')
--- Plug('f3fora/cmp-spell')
+
+-- Showing the function I am currently in
+Plug('wellle/context.vim')
 
 -- file managing
 Plug('junegunn/fzf', { ['do'] = function() vim.fn['fzf#install']() end })

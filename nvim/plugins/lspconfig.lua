@@ -76,7 +76,7 @@ vim.lsp.config("ccls", {
         cache = {
             directory = ".ccls-cache",
         },
-        filetypes =  {"c", "cpp", "objc", "objcpp", "cuda" },
+        filetypes =  {"c", "cc", "cpp", "objc", "objcpp", "cuda" },
         compilationDatabaseDirectory = "./build/",
         index = {
             threads = 0,
@@ -86,6 +86,7 @@ vim.lsp.config("ccls", {
         },
     },
 })
+vim.lsp.enable("ccls")
 
 vim.lsp.config("jdtls", {
     on_attach = on_attach,

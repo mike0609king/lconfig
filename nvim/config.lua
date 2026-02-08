@@ -34,9 +34,6 @@ vim.o.colorcolumn       = "80"                      -- not too long lines (max. 
 
 -- universal mappings
 vim.g.mapleader=" "
-vim.keymap.set("n", ",unfold", ":set foldlevel=100<cr>")
-vim.keymap.set("n", ",all", "ggVG")
-vim.keymap.set("n", ",clear", "ggVGd")
 vim.keymap.set("n", "<leader>yf", ":let @+=expand('%:p')<cr>")      -- copy current file name to system clipboard
 vim.keymap.set("n", "<leader>yd", ":let @+=expand('%:p:h')<cr>")    -- copy current directory name to system clipboard
 vim.keymap.set("n", "<leader>h", ":wincmd h<cr>")
@@ -84,10 +81,10 @@ augroup END
 ]])
 
 -- spelling mappings
-vim.keymap.set("n", ",setd", ":set spell spelllang=en_us,de<cr>")
-vim.keymap.set("n", ",seteng", ":set spell spelllang=en_us<cr>")
-vim.keymap.set("n", ",setger", ":set spell spelllang=de<cr>")
-vim.keymap.set("n", ",setnosp", ":set nospell<cr>")
+vim.api.nvim_create_user_command("SpellAll", "set spell spelllang=en_us,de", {})
+vim.api.nvim_create_user_command("SpellG", "set spell spelllang=de", {})
+vim.api.nvim_create_user_command("SpellE", "set spell spelllang=en_us", {})
+vim.api.nvim_create_user_command("SpellNo", "set nospell", {})
 
 -- mapping special characters for note
 vim.keymap.set("i", '\\"o', "ö")

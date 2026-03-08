@@ -86,6 +86,10 @@ vim.api.nvim_create_user_command("SpellG", "set spell spelllang=de", {})
 vim.api.nvim_create_user_command("SpellE", "set spell spelllang=en_us", {})
 vim.api.nvim_create_user_command("SpellNo", "set nospell", {})
 
+-- session loading and storing
+vim.api.nvim_create_user_command("SaveSession", "mksession! ./session.vim | qall", {})
+vim.api.nvim_create_user_command("LoadSession", "source ./session.vim", {})
+
 -- mapping special characters for note
 vim.keymap.set("i", '\\"o', "ö")
 vim.keymap.set("i", '\\"u', "ü")
@@ -108,6 +112,7 @@ local function set_language_config()
         or filetype == "typescript"
         or filetype == "typescriptreact"
         or filetype == "yaml"
+        or filetype == "html"
 	) then
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2

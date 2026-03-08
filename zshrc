@@ -29,13 +29,14 @@ export LC_NUMERIC="en_US.UTF-8"
 export LC_TIME="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
-export nvimPath="nvim -u ~/lconfig/nvim/config.lua"
+export nvimConfig="~/lconfig/nvim/config.lua"
+export nvimCommand="nvim -u ${nvimConfig}"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
 else # local
-  export EDITOR=$nvimPath
+ export EDITOR=$nvimCommand
 fi
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
@@ -56,12 +57,14 @@ export PATH=~/.local/bin:~/bin:/usr/local/bin:$PATH
 ##################################################
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
+alias ls='ls --color --group-directories-first'
 #alias serve='browser-sync start --server --files . --no-notify -- host `hostname -I` --port 9000'
 
 alias tmux='tmux -u -f ~/lconfig/tmux.conf'
-alias nvim=$nvimPath
+alias nvim=$nvimCommand
+# Open nvim and load session
+alias lnvim="$nvimCommand -c ':source ./session.vim'"
+
 
 export CALCURSE_EDITOR=$vimPath
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 ID generator for files prefix or suffix based on date time.
 """

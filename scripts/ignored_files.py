@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Files that I need to delete before making manual backups. I would print them
 out such that I can manually delete them just in case.

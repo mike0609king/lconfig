@@ -24,6 +24,9 @@ Plug('quangnguyen30192/cmp-nvim-ultisnips')
 -- Looks of vim
 Plug('morhetz/gruvbox')
 Plug('ap/vim-css-color')
+
+-- other
+Plug("kylechui/nvim-surround")
 vim.call("plug#end")
 
 dofile(vim.g.pluginsPath .. "colorscheme.lua")

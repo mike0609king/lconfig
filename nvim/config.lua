@@ -113,6 +113,7 @@ local function set_language_config()
         or filetype == "typescriptreact"
         or filetype == "yaml"
         or filetype == "html"
+        or filetype == "htmldjango"
 	) then
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2

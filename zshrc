@@ -51,6 +51,7 @@ export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 # Changing keybinding
 setxkbmap -option caps:escape
 export PATH=~/.local/bin:~/bin:/usr/local/bin:$PATH
+export PATH="~/lconfig/scripts:$PATH"
 
 ##################################################
 ###                Aliases                     ###

@@ -56,3 +56,14 @@ def hide_code_toggle():
 hide_code_toggle()
 ${1:}
 endsnippet
+
+snippet logger
+def get_logger(name: str):
+    logger = logging.getLogger(name)
+
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter('%(name)s %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    return logger
+endsnippet

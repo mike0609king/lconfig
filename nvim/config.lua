@@ -23,6 +23,7 @@ vim.o.hidden            = true
 vim.o.encoding          = "utf-8"
 vim.o.swapfile          = false
 vim.o.backspace         = "indent,eol,start"        -- removing the restriction of the backspace so that it is possible to delete previously entered code (for Windows)
+vim.o.cursorline        = true
 
 -- tabs
 vim.o.expandtab         = true
@@ -119,6 +120,12 @@ local function set_language_config()
         vim.opt.shiftwidth = 2
         vim.opt.softtabstop = 2
         vim.opt.expandtab = true
+    elseif (
+        filetype == "markdown"
+	) then
+        vim.o.wrap = true
+        vim.keymap.set("n", "j", "gj")
+        vim.keymap.set("n", "k", "gk")
     end
 end
 
